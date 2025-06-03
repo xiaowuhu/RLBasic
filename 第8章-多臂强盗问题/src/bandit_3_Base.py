@@ -104,7 +104,7 @@ def mp_simulate(bandits, k_arms, runs, steps, labels, title):
     for i, mean_rewards in enumerate(all_mean_rewards):     
         tmp = ss.savgol_filter(mean_rewards[0:100], 10, 3)
         plt.plot(tmp, label=labels[i] + str.format("={0:0.3f}", mean_reward_per_bandit[i]), linestyle=lines[i])
-    plt.ylabel('平均收益(0~100)', fontsize=14)
+    plt.title('平均收益(0~100)', fontsize=14)
     plt.legend(fontsize=14)
     plt.grid()
     # 绘制average reward[300:500]
@@ -115,7 +115,7 @@ def mp_simulate(bandits, k_arms, runs, steps, labels, title):
     ticks = [0,50,100,150,200]
     tlabels = [300,350,400,450,500]
     plt.xticks(ticks, tlabels)
-    plt.ylabel('平均收益(300~500)', fontsize=14)
+    plt.title('平均收益(300~500)', fontsize=14)
     plt.grid()
     # 绘制average reward[700:900]
     plt.subplot(grid[1:2, 1])
@@ -125,7 +125,7 @@ def mp_simulate(bandits, k_arms, runs, steps, labels, title):
     ticks = [0,50,100,150,200]
     tlabels = [700,750,800,850,900]
     plt.xticks(ticks, tlabels)
-    plt.ylabel('平均收益(700~900)', fontsize=14)
+    plt.title('平均收益(700~900)', fontsize=14)
     plt.grid()
     # 绘制正确的最优动作选择频率
     plt.subplot(grid[2:4, 0:2])
@@ -133,7 +133,7 @@ def mp_simulate(bandits, k_arms, runs, steps, labels, title):
         tmp = ss.savgol_filter(counts, 20, 3)
         plt.plot(tmp, label=labels[i] + str.format("={0:0.3f}", best_action_per_bandit[i]), linestyle=lines[i])
     plt.xlabel('迭代步数', fontsize=14)
-    plt.ylabel('最佳动作采用比例', fontsize=14)
+    plt.title('最佳动作采用比例', fontsize=14)
     plt.legend(fontsize=14)
     plt.grid()
     # 绘制所有动作的执行次数
