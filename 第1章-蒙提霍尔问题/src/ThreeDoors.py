@@ -41,9 +41,9 @@ def try_n_doors(n_doors):
         win_without_change, win_after_change = try_once(n_doors)
         win_without_change_all += win_without_change
         win_after_change_all += win_after_change
-    print(str.format("{0}扇门:", n_doors))
-    print(str.format("更换选择而中奖的次数={0}, 频率={1}", win_after_change_all, win_after_change_all/total))
-    print(str.format("不换选择而中奖的次数={0}, 频率={1}", win_without_change_all, win_without_change_all/total))
+    print(f"{n_doors}扇门:")
+    print(f"更换选择而中奖的次数={win_after_change_all}, 频率={win_after_change_all/total}")
+    print(f"不换选择而中奖的次数={win_without_change_all}, 频率={win_without_change_all/total}")
 
 if __name__ == "__main__":
     n_doors = 3
